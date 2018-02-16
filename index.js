@@ -1,4 +1,4 @@
-const request = require('./node_modules/request');
+const request = require('request');
 
 function sendSignal (req, res) {
   // {"count":"2", "clientkey":"hoge", "deviceid":"fuga", "signal":"signal JSON"}
