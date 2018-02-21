@@ -1,6 +1,6 @@
 # Control my ceiling light
 
-JSONをPOSTするとcountの回数だけIRKit赤外線信号送信APIを呼ぶ。
+JSONをPOSTするとcountの回数だけIRKitの[赤外線信号送信API(POST /1/messages)](http://getirkit.com)を呼ぶ。
 
 ```
 {
