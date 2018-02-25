@@ -21,7 +21,7 @@ function sendSignal (req, res) {
       clearInterval(timer);
     }
     count++;
-  }, 1000);
+  }, 2000);
 
   res.status(200).end();
 
