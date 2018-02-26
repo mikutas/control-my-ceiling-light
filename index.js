@@ -4,8 +4,7 @@ function sendSignal (req, res) {
   // {"count":"2", "clientkey":"hoge", "deviceid":"fuga", "signal":"signal JSON"}
 
   var count = 0;
-  var timer = setInterval(function(){
-
+  var timer = setInterval(function (){
     var options = {
       uri: "https://api.getirkit.com/1/messages",
       headers: {
@@ -14,17 +13,21 @@ function sendSignal (req, res) {
       body: `clientkey=${req.body.clientkey}&deviceid=${req.body.deviceid}&message=${JSON.stringify(req.body.signal)}`
     };
 
-    request.post(options);
     console.log("sending signal...");
+    request.post(options, function (error){
+      if (error) {
+        res.status(500);
+        res.end('Internal Server Error');
+        clearInterval(timer);
+      }
+    });
 
     if(count >= req.body.count - 1){
+      res.status(200).end();
       clearInterval(timer);
     }
     count++;
   }, 2000);
-
-  res.status(200).end();
-
 }
 
 function handlePOST (req, res) {
