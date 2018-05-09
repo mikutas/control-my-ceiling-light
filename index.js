@@ -27,7 +27,7 @@ function sendSignal (req, res) {
       clearInterval(timer);
     }
     count++;
-  }, 2000);
+  }, 5000);
 }
 
 function handlePOST (req, res) {
