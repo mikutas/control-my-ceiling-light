@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/tkms0106/control-my-ceiling-light#readme",
   "dependencies": {
-    "request": "^2.83.0"
+    "request": "^2.85.0"
   }
 }
