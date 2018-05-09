@@ -4,8 +4,8 @@ function sendSignal (req, res) {
   // {"count":"2", "clientkey":"hoge", "deviceid":"fuga", "signal":"signal JSON"}
 
   var count = 0;
-  var timer = setInterval(function (){
-    var options = {
+  const timer = setInterval(function (){
+    const options = {
       uri: "https://api.getirkit.com/1/messages",
       headers: {
         "Content-type": "application/x-www-form-urlencoded"
