@@ -1,5 +1,6 @@
 # Control my ceiling light
 
+スマートスピーカーに一声かけてリモコンを複数回操作するためのもの。
 JSONをPOSTするとcountの回数だけIRKitの[赤外線信号送信API(POST /1/messages)](http://getirkit.com)を呼ぶ。
 
 ```
