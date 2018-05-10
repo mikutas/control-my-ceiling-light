@@ -3,8 +3,19 @@ const request = require('request');
 function sendSignal (req, res) {
   // {"count":"2", "clientkey":"hoge", "deviceid":"fuga", "signal":"signal JSON"}
 
-  var count = 0;
+  const createCounter = () => {
+    let privateCount = 0;
+    return () => {
+        privateCount++;
+        return privateCount;
+    };
+  };
+
+  const counter = createCounter();
+
   const timer = setInterval(function (){
+    const count = counter();
+
     const options = {
       uri: "https://api.getirkit.com/1/messages",
       headers: {
@@ -22,11 +33,10 @@ function sendSignal (req, res) {
       }
     });
 
-    if(count >= req.body.count - 1){
+    if(count >= req.body.count){
       res.status(200).end();
       clearInterval(timer);
     }
-    count++;
   }, 5000);
 }
 
