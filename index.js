@@ -1,6 +1,6 @@
 const request = require('request');
 
-function sendSignal (req, res) {
+const sendSignal = (req, res) => {
   // {"count":"2", "clientkey":"hoge", "deviceid":"fuga", "signal":"signal JSON"}
 
   const createCounter = () => {
@@ -38,9 +38,9 @@ function sendSignal (req, res) {
       clearInterval(timer);
     }
   }, 5000);
-}
+};
 
-function handlePOST (req, res) {
+const handlePOST = (req, res) => {
   switch (req.get('content-type')) {
     case 'application/json':
       sendSignal(req, res);
@@ -49,7 +49,7 @@ function handlePOST (req, res) {
       res.status(500).send({ error: 'Only JSON is accepted.' });
       break;
   }
-}
+};
 
 exports.helloHttp = (req, res) => {
   switch (req.method) {
